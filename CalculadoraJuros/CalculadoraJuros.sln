@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraJuros", "CalculadoraJuros\CalculadoraJuros.csproj", "{2C8B85C7-78C1-40DB-9FC1-E7A5B8BC7B08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C8B85C7-78C1-40DB-9FC1-E7A5B8BC7B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C8B85C7-78C1-40DB-9FC1-E7A5B8BC7B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C8B85C7-78C1-40DB-9FC1-E7A5B8BC7B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8B85C7-78C1-40DB-9FC1-E7A5B8BC7B08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F02EC93-CFA9-4B1F-B80C-67C492D0F8A5}
+	EndGlobalSection
+EndGlobal
