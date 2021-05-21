@@ -3,7 +3,7 @@ version: '3.4'
 services:
   calculadorajuros:
     image: calculadorajuros:dev
-    container_name: CalculadoraJuros_1
+    container_name: CalculadoraJuros
     build:
       target: base
       labels:
@@ -12,20 +12,19 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_calculadorajuros$
     volumes:
       - D:\Projetos\Testes\Softplan\CalculadoraJuros\CalculadoraJuros:/app
       - D:\Projetos\Testes\Softplan\CalculadoraJuros:/src
       - C:\Users\thiag\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\thiag\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Microsoft\Xamarin\NuGet\:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_calculadorajuros$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net5.0/CalculadoraJuros.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_calculadorajuros$ \"/app/bin/Debug/net5.0/CalculadoraJuros.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -40,20 +39,19 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_taxajuros$
     volumes:
       - D:\Projetos\Testes\Softplan\CalculadoraJuros\TaxaJuros\TaxaJuros:/app
       - D:\Projetos\Testes\Softplan\CalculadoraJuros:/src
       - C:\Users\thiag\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\thiag\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Microsoft\Xamarin\NuGet\:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_taxajuros$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net5.0/TaxaJuros.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_taxajuros$ \"/app/bin/Debug/net5.0/TaxaJuros.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
