@@ -1,0 +1,15 @@
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\appsettings.Development.json
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\appsettings.json
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\CalculadoraJuros.exe
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\CalculadoraJuros.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\Microsoft.OpenApi.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\CalculadoraJuros.pdb
+D:\Projetos\Testes\Softplan\CalculadoraJuros\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+D:\Projetos\Testes\Softplan\CalculadoraJuros\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+D:\Projetos\Testes\Softplan\CalculadoraJuros\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\TaxaJuros.exe
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\TaxaJuros.dll
+D:\Projetos\Testes\Softplan\CalculadoraJuros\bin\Debug\TaxaJuros.pdb

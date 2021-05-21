@@ -1,0 +1,21 @@
+services:
+  calculadorajuros:
+    build:
+      context: D:\Projetos\Testes\Softplan\CalculadoraJuros
+      dockerfile: CalculadoraJuros/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: calculadorajuros
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\thiag\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\thiag\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  taxajuros:
+    build:
+      context: D:\Projetos\Testes\Softplan\CalculadoraJuros
+      dockerfile: TaxaJuros/Dockerfile
+    image: TaxaJuros
+version: '3.4'

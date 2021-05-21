@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["CalculadoraJuros/CalculadoraJuros.csproj", "CalculadoraJuros/"]
+COPY ["TaxaJuros/TaxaJuros/TaxaJuros.csproj", "TaxaJuros/TaxaJuros/"]
 RUN dotnet restore "CalculadoraJuros/CalculadoraJuros.csproj"
 COPY . .
 WORKDIR "/src/CalculadoraJuros"

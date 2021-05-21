@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  taxajuros:
+    image: ${DOCKER_REGISTRY-}taxajuros
+    build:
+      context: .
+      dockerfile: TaxaJuros/TaxaJuros/Dockerfile
+
+  calculadorajuros:
+    image: ${DOCKER_REGISTRY-}calculadorajuros
+    build:
+      context: .
+      dockerfile: CalculadoraJuros/Dockerfile
+    depends_on:
+      - "taxajuros"

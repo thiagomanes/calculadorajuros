@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace CalculadoraJuros.Controllers
@@ -14,7 +18,8 @@ namespace CalculadoraJuros.Controllers
     public class CalculaJurosController : ControllerBase
     {
 
-        const string urlGit = "aquiviraoendereo";
+        const string urlGit = "https://github.com/thiagomanes/calculadorajuros.git";
+        private readonly IConfiguration _configuration;
 
         private decimal Truncar(decimal valor, int precisao)
         {
@@ -26,9 +31,37 @@ namespace CalculadoraJuros.Controllers
 
         private readonly ILogger<CalculaJurosController> _logger;
 
-        public CalculaJurosController(ILogger<CalculaJurosController> logger)
+        public CalculaJurosController(ILogger<CalculaJurosController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
+        }
+
+        private async Task<decimal> ObterTaxaJuros() 
+        {
+
+
+            var urlAPi = _configuration.GetValue<string>("Configuracao:urlApiTaxaJuros", @"https://localhost:49161/TaxaJuros");
+
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:49161/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            decimal taxa = 0M;
+
+            HttpResponseMessage response = await client.GetAsync(urlAPi);
+            if (response.IsSuccessStatusCode)
+            {
+                var taxaStr = await response.Content.ReadAsStringAsync();
+
+                if (!string.IsNullOrEmpty(taxaStr))
+                    taxa = decimal.Parse(taxaStr);
+
+            }
+            return taxa;
+         
         }
 
         [HttpGet]
@@ -36,7 +69,7 @@ namespace CalculadoraJuros.Controllers
         {
             try
             {
-                decimal taxaJuros = 0.01M;
+                decimal taxaJuros = await ObterTaxaJuros();
                 var percentual = valorInicial * (valorInicial * decimal.Parse(Math.Pow(double.Parse(taxaJuros.ToString()) + 1, (meses)).ToString()) * taxaJuros- 1);
                 var retorno = valorInicial + valorInicial * (percentual / 100);
 
